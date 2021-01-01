@@ -4,9 +4,9 @@
 /* Paths and tracks visible only on z12+ */
 /* Wider ways distinguished only on z14+ */
 
-/* mtb:winter=1      often usable             */
-/* mtb:winter=2/yes  sometimes usable         */
-/* mtb:winter=3/NULL arely usable or untagged */
+/* mtb:winter=1      often usable              */
+/* mtb:winter=2/yes  sometimes usable          */
+/* mtb:winter=3/NULL rarely usable or untagged */
 
 #paths_and_tracks[zoom>=12] {
   [type='path'],[type='track'],[type='service'] {
@@ -18,10 +18,6 @@
       [zoom=15]  { line-width: @paz15_cw + 2; }
       [zoom>=16] { line-width: @paz16_cw + 2; }
     }
-
-
-
-
 
     ::ptcases[type!='service'] {
       line-opacity: 0;
@@ -227,18 +223,6 @@
       [zoom=15]  { line-width: 5.8; }
       [zoom>=16] { line-width: 6.0; }
     }
-  }
-  ::piste_difficulty[zoom>=15] {
-    line-opacity: 0;
-    line-width: @paz15_cw * 1.2;
-    line-offset: @paz15_cw * 2.0;
-    line-dasharray: 0.1, 12.0;
-    line-cap: round;
-    ['piste:difficulty'='novice']       { line-opacity: 1; line-color: #35cc00; }
-    ['piste:difficulty'='easy']         { line-opacity: 1; line-color: #0024ff; }
-    ['piste:difficulty'='intermediate'] { line-opacity: 1; line-color: #f40000; }
-    ['piste:difficulty'='advanced']     { line-opacity: 1; line-color: #000000; }
-    ['piste:difficulty'='expert']       { line-opacity: 1; line-color: #000000; line-dasharray: 2.0, 10.0; }
   }
 }
 

@@ -1,17 +1,5 @@
 /* Point type physical elements, both constructs and natural */
 #constructs_point {
-  [type='power_pole'][zoom>=14] {
-    marker-file: url('images/power_pole.png');
-  }
-  [type='aerialway_pylon'][zoom>=13] {
-    marker-file: url('images/aerialway_pylon.png');
-  }
-  [type='aerialway_station'][zoom>=13] {
-    marker-file: url('images/aerialway_station.png');
-  }
-  [type='power_tower'][zoom>=13] {
-    marker-file: url('images/power_tower.png');
-  }
   [type='barrier_gate'][zoom>=15] {
     marker-allow-overlap: true;
     marker-file: url('images/barrier_gate.png');
