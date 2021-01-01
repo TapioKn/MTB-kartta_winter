@@ -109,14 +109,14 @@ Map { font-directory: url(fonts); }
 // Case colors
 @cyclewaybg:      @land;
 @footwaybg:       @cyclewaybg;
-@mtbscale0-:      #8bd7ae;
-@mtbscale0:       #75e009;
-@mtbscale1:       #e3e800;
-@mtbscale2:       #feb13e;
-@mtbscale3:       #ff4454;
-@mtbscale4:       #f20bab;
-@mtbscale5:       #bf1cf5;
-@mtbscale6:       #8100ac;
+@mtbscale0-:      lighten(#8bd7ae, 10%);
+@mtbscale0:       lighten(#75e009, 10%);
+@mtbscale1:       lighten(#e3e800, 10%);
+@mtbscale2:       lighten(#feb13e, 10%);
+@mtbscale3:       lighten(#ff4454, 10%);
+@mtbscale4:       lighten(#f20bab, 10%);
+@mtbscale5:       lighten(#bf1cf5, 10%);
+@mtbscale6:       lighten(#8100ac, 10%);
 
 // ==================================================================
 // BOUNDARY COLORS

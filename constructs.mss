@@ -1,37 +1,3 @@
-/* Line type constructs and similar elements */
-#constructs_line {
-  [type='hedge'][zoom>=15] {
-    line-color: @hedge;
-    [zoom=15]  { line-width: 1; }
-    [zoom=16]  { line-width: 2; }
-    [zoom>=17] { line-width: 2.5; }
-  }
-  [type='wall'][zoom>=15] {
-    line-width: 1;
-    line-color: darken(@building, 10%);
-    [zoom>=15] { line-width: 1.5; }
-  }
-  [type='fence'][zoom>=15] {
-    line-width: 0.75;
-    line-color: darken(@building, 10%);
-    [zoom>=15] { line-width: 1; }
-  }
-  [type='minor_line'][zoom>=14] {
-    line-width: 1;
-    line-color: darken(@building, 10%);
-    line-opacity: 0.7;
-  }
-  [type='major_line'][zoom>=13] {
-    line-width: 1;
-    line-color: darken(@building, 10%);
-    line-opacity: 0.7;
-  }
-}
-
-#cliffs[zoom>=14] {
-  line-pattern-file: url("images/natural_cliff.png");
-}
-
 /* Point type physical elements, both constructs and natural */
 #constructs_point {
   [type='power_pole'][zoom>=14] {
@@ -89,7 +55,6 @@
       text-halo-radius:1;
     }
   }
-
   [type='tourism_viewpoint'][zoom>=13] {
     marker-allow-overlap: true;
     marker-file: url('images/tourism_viewpoint.svg');

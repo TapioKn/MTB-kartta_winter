@@ -116,7 +116,7 @@
   text-halo-radius:1;
   text-wrap-width: 30;
   text-clip: false;
-  text-allow-overlap: false;
+  text-allow-overlap: true;
   text-placement-type: simple;
   text-placements: N,NE,E,SE,S,SW,W,NW;
   [zoom=14] {
@@ -169,7 +169,7 @@
     text-fill: @poi_text;
     text-halo-fill: #fff;
     text-clip: false;
-    text-allow-overlap: false;
+    text-allow-overlap: true;
     text-placement-type: simple;
     text-placements: N,NE,E,SE,S,SW,W,NW;
     // Specific style overrides for different types of areas:
@@ -286,30 +286,6 @@
 
 }
 
-/* ================================================================== */
-/* WATERWAY LABELS
-/* ================================================================== */
-
-#waterway_label[type='river'][zoom>=13],
-#waterway_label[type='canal'][zoom>=15],
-#waterway_label[type='stream'][zoom>=16] {
-  text-name: '[name]';
-  text-face-name: @sans_italic;
-  text-fill: @water * 0.75;
-  text-halo-fill: fadeout(lighten(@water,25%),25%);
-  text-halo-radius: 1.25;
-  text-placement: line;
-  text-min-distance: 400;
-  text-size: 10;
-  [type='river'][zoom=15],
-  [type='canal'][zoom>=16] {
-    text-size: 11;
-  }
-  [type='river'][zoom>=16] {
-    text-size: 14;
-    text-spacing: 300;
-  }
-}
 
 /* ================================================================== */
 /* ROAD LABELS
