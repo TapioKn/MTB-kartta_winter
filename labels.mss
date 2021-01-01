@@ -10,12 +10,12 @@
   text-placement:point;
   text-fill:@city_text;
   text-halo-fill:@city_halo;
-  text-halo-radius:2;
+  text-halo-radius:1.5;
   text-clip: false;
   text-allow-overlap: true;
   [zoom<=8] {
     text-size: 10;
-    text-halo-radius:1;
+    text-halo-radius:0.5;
   }
   [zoom=9] {
     text-size:10;
@@ -64,12 +64,12 @@
   text-fill:@town_text;
   text-size:9;
   text-halo-fill:@town_halo;
-  text-halo-radius:1;
+  text-halo-radius:0.5;
   text-wrap-width: 50;
   text-clip: false;
   text-allow-overlap: true;
   [zoom>=10] {
-    text-halo-radius:2;
+    text-halo-radius:1.5;
     text-size: 10;
   }
   [zoom>=11]{ text-size:11; }
@@ -113,7 +113,7 @@
   text-fill:@other_text;
   text-size:10;
   text-halo-fill:@other_halo;
-  text-halo-radius:1;
+  text-halo-radius:0.5;
   text-wrap-width: 30;
   text-clip: false;
   text-allow-overlap: true;
@@ -122,7 +122,7 @@
   [zoom=14] {
     text-size: 11;
     [type='locality'] { text-size: 10; }
-    [type!='locality'] { text-halo-radius: 1.5; }
+    [type!='locality'] { text-halo-radius: 1.0; }
     text-character-spacing: 1;
     text-wrap-width: 40;
     text-line-spacing: 1;
@@ -131,7 +131,7 @@
     text-size: 12;
     [type='locality'] { text-size: 11; }
     [type!='locality'] { text-transform: uppercase; }
-    text-halo-radius: 1.5;
+    text-halo-radius: 1.0;
     text-character-spacing: 1;
     text-wrap-width: 60;
     text-line-spacing: 1;
@@ -141,7 +141,7 @@
     [type='locality'] { text-size: 11; }
     [type!='locality'] { text-transform: uppercase;
                          text-character-spacing: 2; }
-    text-halo-radius: 2;
+    text-halo-radius: 1.5;
     text-wrap-width: 120;
     text-line-spacing: 2;
   }
@@ -162,7 +162,7 @@
   [zoom>=15][area>120000][type!='building'][type!='parking'],
   [zoom>=16][area>20000][type!='building'][type!='parking'] {
     text-name: "[name]";
-    text-halo-radius: 1.5;
+    text-halo-radius: 1.0;
     text-face-name:@sans;
     text-size: 10;
     text-wrap-width:40;
@@ -213,14 +213,14 @@
       text-size: 12;
       text-wrap-width: 60;
       text-character-spacing: 1;
-      text-halo-radius: 2;
+      text-halo-radius: 1.5;
     }
     [zoom=16][area>50000] {
       text-name: "[name]";
       text-size: 12;
       text-wrap-width: 60;
       text-character-spacing: 1;
-      text-halo-radius: 1.5;
+      text-halo-radius: 1.0;
     }
   }
 }
@@ -230,7 +230,7 @@
   [zoom>=15][area>4000][type='building'],
   [zoom>=16][area>2000][type='building'] {
     text-name: "[name]";
-    text-halo-radius: 1;
+    text-halo-radius: 0.5;
     text-face-name: @sans;
     text-size: 10;
     text-wrap-width:30;
@@ -251,7 +251,7 @@
     text-halo-fill: #fff;
     text-size: 12;
     [zoom>=15] { text-size: 11; }
-    text-halo-radius: 1.0;
+    text-halo-radius: 0.5;
     text-opacity: 0.8;
     [access!=''][access!='permissive'][access!='yes'] {
       text-opacity: 0.3;
@@ -280,7 +280,7 @@
       text-fill: @parking-label * 0.6;
       text-halo-fill: lighten(@parking-label, 90%);
       [access='private'],[access='no'] { text-fill: @forbidden * 0.6; text-halo-fill: lighten(@forbidden, 90%); }
-      text-halo-radius:1;
+      text-halo-radius:0.5;
     }
   }
 
@@ -330,7 +330,7 @@
   text-placement:line;
   text-fill:@road_text;
   text-halo-fill:@road_halo;
-  text-halo-radius:1.5;
+  text-halo-radius:1.0;
   text-min-distance:120;
   text-size:11;
   [zoom>=16] { text-size:12; text-character-spacing:0.75; text-halo-radius:2.0 }
@@ -351,7 +351,7 @@
   text-character-spacing:0.5;
   text-fill:@road_text;
   text-halo-fill:@road_halo;
-  text-halo-radius:1.5;
+  text-halo-radius:1.0;
   text-min-distance:60;
   [zoom>=16] { text-size:12; text-character-spacing:0.75; text-halo-radius:2.0 }
   [tunnel='yes'],
@@ -366,7 +366,7 @@
   text-character-spacing:0.35;
   text-fill:@road_text;
   text-halo-fill:@road_halo;
-  text-halo-radius:1.5;
+  text-halo-radius:1.0;
   text-min-distance:40;
   [zoom=15]  { [type='path'],[type='track'],[type='steps'],[type='cycleway'],[type='footway'] { text-size:10; text-dy: 8;} }
   [zoom=16]  { text-size:12; text-character-spacing:0.5; text-halo-radius:2.0;
@@ -385,7 +385,7 @@
   text-character-spacing:0.35;
   text-fill:@road_text;
   text-halo-fill:@road_halo;
-  text-halo-radius:1.5;
+  text-halo-radius:1.0;
   text-min-distance:40;
   [zoom=15]  { text-size:9; text-dy: -8; }
   [zoom=16]  { text-size:11; text-character-spacing:0.5; text-halo-radius:2.0; text-dy: -9; }
@@ -436,7 +436,7 @@
     text-halo-fill: #fff;
     text-size: 12;
     [zoom>=15] { text-size: 11; }
-    text-halo-radius: 1.0;
+    text-halo-radius: 0.5;
     text-opacity: 0.8;
     [access!=''][access!='permissive'][access!='yes'] {
       text-opacity: 0.3;
@@ -489,6 +489,6 @@
     text-wrap-width:30;
     text-fill: @rock * 0.2;
     text-halo-fill: lighten(@rock, 80%);
-    text-halo-radius:1.25;
+    text-halo-radius:0.7;
   }
 }

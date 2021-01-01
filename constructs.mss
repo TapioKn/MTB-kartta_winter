@@ -40,7 +40,7 @@
       text-fill: @parking-label * 0.6;
       text-halo-fill: lighten(@parking-label, 90%);
       [access='private'],[access='no'] { text-fill: @forbidden * 0.6; text-halo-fill: lighten(@forbidden, 90%); }
-      text-halo-radius:1;
+      text-halo-radius:0.5;
     }
   }
   [type='tourism_viewpoint'][zoom>=13] {
@@ -62,6 +62,6 @@
     text-wrap-width:30;
     text-fill: @parking-label * 0.6;
     text-halo-fill: lighten(@parking-label, 90%);
-    text-halo-radius:1;
+    text-halo-radius:0.5;
   }
 }
