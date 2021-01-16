@@ -10,14 +10,6 @@
 
 #paths_and_tracks[zoom>=12] {
   [type='path'],[type='track'],[type='service'] {
-    ::ptbackgrounds[type!='service'] {
-      line-color: @forest;
-      [zoom=12]  { line-width: @paz12_cw + 2; }
-      [zoom=13]  { line-width: @paz13_cw + 2; }
-      [zoom=14]  { line-width: @paz14_cw + 2; }
-      [zoom=15]  { line-width: @paz15_cw + 2; }
-      [zoom>=16] { line-width: @paz16_cw + 2; }
-    }
 
     ::ptcases[type!='service'] {
       line-opacity: 0;
@@ -132,12 +124,7 @@
       }
     }
 
-
-
-
-
-
-    ::accessoverlays1[zoom>=14] {
+    ::accessoverlaysroads1[zoom>=14] {
       ['mtb:scale'='-1'],['bicycle'='no'] {
         line-dasharray: 1, 2.0;
         line-color: @forbidden;
@@ -147,8 +134,7 @@
         [width<0.6] { [zoom=14] { line-offset: -2.3; } [zoom=15] { line-offset: -2.8; } [zoom>=16] { line-offset: -3.3; } }
         [width>0.8] { [zoom=14] { line-offset: -3.0; } [zoom=15] { line-offset: -4.0; } [zoom>=16] { line-offset: -5.0; } }
       }
-      [access='no'],
-      [access='private'] {
+      [access='no'],[access='private'] {
         line-dasharray: 1, 2.0;
         line-color: @forbidden;
         [zoom=14]  { line-width: 2.5; line-offset: -2.0; }
@@ -158,9 +144,8 @@
         [width>0.8] { [zoom=14] { line-offset: -2.5; } [zoom=15] { line-offset: -3.5; } [zoom>=16] { line-offset: -4.5; } }
       }
     }
-    ::accessoverlays2[zoom>=14] {
-      [access='no'],
-      [access='private'] {
+    ::accessoverlaysroads2[zoom>=14] {
+      [access='no'],[access='private'] {
         line-dasharray: 1, 2.0;
         line-color: @forbidden;
         [zoom=14]  { line-width: 2.5; line-offset: 2.0; }
@@ -205,6 +190,24 @@
         [width<0.6] { line-offset: 7; [zoom=14] { line-offset: 5; } }
         [width>0.8] { line-offset: 10; [zoom=14] { line-offset: 8; } }
       }
+    }
+    ::imbaoverlays[zoom>=15][informal='no'] {
+      line-width: @paz15_cw * 1.3;
+      line-offset: @paz15_cw * -1.7;
+      [zoom=16]  { line-width: @paz16_cw * 1.3; line-offset: @paz16_cw * -1.7; }
+      [zoom>=17] { line-width: @paz17_cw * 1.2; line-offset: @paz17_cw * -1.5; }
+      line-cap: round;
+      line-dasharray: 0.1, 30.0;
+      line-opacity: 0;
+      ['mtb:scale:imba'='0'] { line-opacity: 1; line-color: #96df1c; }
+      ['mtb:scale:imba'='1'] { line-opacity: 1; line-color: #0160ff; }
+      ['mtb:scale:imba'='2'] { line-opacity: 1; line-color: #ff0000; }
+      ['mtb:scale:imba'='3'] { line-opacity: 1; line-color: #000000; }
+      ['mtb:scale:imba'='4'] { line-opacity: 1; line-color: #000000;
+                               line-dasharray: 0.1, 4.0, 0.1, 26.0;
+                               [zoom=16]  { line-dasharray: 0.1, 6.0, 0.1, 24.0; }
+                               [zoom>=17] { line-dasharray: 0.1, 8.0, 0.1, 28.0; }
+                             }
     }
   }
 }
@@ -298,6 +301,61 @@
         ['mtb:winter'='2'],['mtb:winter'='yes'] { line-width: @paz16_lw; }
         ['mtb:winter'='1']                      { line-width: @paz16_lw * 1.5; }
       }
+    }
+  }
+}
+
+
+/*####################################################################################*/
+/* PATH AND TRACK TUNNELS                                                             */
+/*####################################################################################*/
+/* Path and track bridges/tunnels drawn separately only on z15+ */
+
+#paths_and_tracks_tunnel[zoom>=15] {
+  ::tptcases {
+    line-opacity: 0;
+    line-color: #ffffff;
+    ['mtb:scale'='0-'] { line-opacity: 1; line-color: lighten(@mtbscale0-, 10%); }
+    ['mtb:scale'='0']  { line-opacity: 1; line-color: lighten(@mtbscale0, 10%); }
+    ['mtb:scale'='1']  { line-opacity: 1; line-color: lighten(@mtbscale1, 10%); }
+    ['mtb:scale'='2']  { line-opacity: 1; line-color: lighten(@mtbscale2, 10%); }
+    ['mtb:scale'='3']  { line-opacity: 1; line-color: lighten(@mtbscale3, 10%); }
+    ['mtb:scale'='4']  { line-opacity: 1; line-color: lighten(@mtbscale4, 10%); }
+    ['mtb:scale'='5']  { line-opacity: 1; line-color: lighten(@mtbscale5, 10%); }
+    ['mtb:scale'='6']  { line-opacity: 1; line-color: lighten(@mtbscale5, 10%); }
+
+    [zoom<=15] {
+      line-width: @paz15_cw;
+      [width<0.6]                { line-width: @paz15_cw / 2.0; }
+      /* Width 0.6–0.8 uses the "normal" lineweights */
+      [width>0.8]                { line-width: @paz15_cw * 1.6; }
+      [width>1.7],[type='track'] { line-width: @paz15_cw * 2.0; }
+    }
+    [zoom>=16] {
+      line-width: @paz16_cw;
+      [width<0.6]                { line-width: @paz16_cw / 2.0; }
+      /* Width 0.6–0.8 uses the "normal" lineweights */
+      [width>0.8]                { line-width: @paz16_cw * 1.6; }
+      [width>1.7],[type='track'] { line-width: @paz16_cw * 2.0; }
+    }
+  }
+  ::tptlines {
+    line-opacity: 0.5;
+    [zoom=15] {
+      line-width: @paz15_lw;
+      [type='path']              { line-dasharray: @paz15_da; }
+      [width<0.6]                { line-width: @paz15_lw / 2; }
+      /* Width 0.6–0.8 uses the "normal" lineweights */
+      [width>0.8]                { line-width: @paz15_lw * 1.7; }
+      [width>1.7],[type='track'] { line-dasharray: @trz15_da; line-width: @paz15_lw * 2.0; line-color: lighten(@path_line, 35%); }
+    }
+    [zoom>=16] {
+      line-width: @paz16_lw;
+      [type='path']              { line-dasharray: @paz16_da; }
+      [width<0.6]                { line-width: @paz16_lw / 2; }
+      /* Width 0.6–0.8 uses the "normal" lineweights */
+      [width>0.8]                { line-width: @paz16_lw * 1.8; }
+      [width>1.7],[type='track'] { line-dasharray: @trz16_da; line-width: @paz16_lw * 2.0; line-color: lighten(@path_line, 35%); }
     }
   }
 }
