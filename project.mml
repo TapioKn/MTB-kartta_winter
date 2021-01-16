@@ -968,6 +968,34 @@
     {
       "geometry": "linestring",
       "extent": [
+        22.333054496891226,
+        60.749948194764535,
+        25.43746119645908,
+        63.03240199483504
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "/* winter_overlays */\n( SELECT way, seasonal, \"mtb:winter\", \"bicycle:winter\", \"foot:winter\", \"piste:type\", \"piste:difficulty\"\n  FROM planet_osm_line\n  WHERE (highway IN ('footway', 'footpath', 'pedestrian', 'path', 'track', 'bridleway', 'service'))\n ORDER BY z_order\n) AS data",
+        "key_field": "",
+        "geometry_field": "way",
+        "extent_cache": "dynamic",
+        "extent": "",
+        "dbname": "gis",
+        "host": "localhost",
+        "port": "5432",
+        "user": "renderer",
+        "password": "renderer"
+      },
+      "id": "winter_overlays",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "winter_overlays"
+    },
+    {
+      "geometry": "linestring",
+      "extent": [
         22.333054456894995,
         59.81454700601614,
         29.02572215318864,
@@ -1292,34 +1320,6 @@
         63.03240199483504
       ],
       "advanced": {}
-    },
-    {
-      "geometry": "linestring",
-      "extent": [
-        22.333054496891226,
-        60.749948194764535,
-        25.43746119645908,
-        63.03240199483504
-      ],
-      "Datasource": {
-        "type": "postgis",
-        "table": "/* winter_overlays */\n( SELECT way, seasonal, \"mtb:winter\", \"bicycle:winter\", \"foot:winter\", \"piste:type\", \"piste:difficulty\"\n  FROM planet_osm_line\n  WHERE (highway IN ('footway', 'footpath', 'pedestrian', 'path', 'track', 'bridleway', 'service'))\n ORDER BY z_order\n) AS data",
-        "key_field": "",
-        "geometry_field": "way",
-        "extent_cache": "dynamic",
-        "extent": "",
-        "dbname": "gis",
-        "host": "localhost",
-        "port": "5432",
-        "user": "renderer",
-        "password": "renderer"
-      },
-      "id": "winter_overlays",
-      "class": "",
-      "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-      "advanced": {},
-      "name": "winter_overlays"
     }
   ],
   "scale": 1,
