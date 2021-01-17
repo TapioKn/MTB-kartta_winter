@@ -975,7 +975,7 @@
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "/* winter_overlays */\n( SELECT way, seasonal, \"mtb:winter\", \"bicycle:winter\", \"foot:winter\", \"piste:type\", \"piste:difficulty\"\n  FROM planet_osm_line\n  WHERE (highway IN ('footway', 'footpath', 'pedestrian', 'path', 'track', 'bridleway', 'service'))\n ORDER BY z_order\n) AS data",
+        "table": "/* winter_overlays */\n( SELECT way, seasonal, \"mtb:winter\", \"bicycle:winter\", \"foot:winter\", \"piste:type\", \"piste:difficulty\"\n  FROM planet_osm_line\n  WHERE (highway IN ('footway', 'footpath', 'pedestrian', 'path', 'track', 'bridleway', 'service', 'cycleway'))\n ORDER BY z_order\n) AS data",
         "key_field": "",
         "geometry_field": "way",
         "extent_cache": "custom",
