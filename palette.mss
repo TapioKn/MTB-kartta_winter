@@ -117,6 +117,9 @@ Map { font-directory: url(fonts); }
 @mtbscale4:       #f20bab;
 @mtbscale5:       #bf1cf5;
 @mtbscale6:       #8100ac;
+@mtbwinter1:      lighten(#75e009, 10%);
+@mtbwinter2:      lighten(#e3e800, 15%);
+@mtbwinter3:      lighten(#fe893e, 15%);
 
 // ==================================================================
 // BOUNDARY COLORS

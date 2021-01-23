@@ -428,7 +428,13 @@ come in as well.
   }
 
   // Light brown fill for unpaved roads
-  [surface='unpaved'] { line-color: @unpaved_fill;}
+  [surface='unpaved'] { line-color: @unpaved_fill; }
+
+  // mtb:winter coloring for service roads
+  [type='service']['mtb:winter'='1']   { line-color: lighten(@mtbwinter1, 5%); }
+  [type='service']['mtb:winter'='2'],
+  [type='service']['mtb:winter'='yes'] { line-color: lighten(@mtbwinter2, 5%); }
+  [type='service']['mtb:winter'='3']   { line-color: @mtbwinter3; }
 
   /* No lines for paths/tracks or parking aisles, defined in their own style */
   [type='path'],
