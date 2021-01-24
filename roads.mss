@@ -430,7 +430,12 @@ come in as well.
   // Light brown fill for unpaved roads, disabled in winter style
   // [surface='unpaved'] { line-color: @unpaved_fill; }
 
-  // mtb:winter coloring for service roads
+  // winter_service/snowplowing or mtb:winter based coloring for service roads
+  // mtb:winter overrides winter_service/snowplowing
+
+  [type='service']['winter_service'='yes'] { line-color: lighten(@mtbwinter1, 5%); }
+  [type='service']['winter_service'='no'] { line-color: @mtbwinter3; }
+
   [type='service']['mtb:winter'='1']   { line-color: lighten(@mtbwinter1, 5%); }
   [type='service']['mtb:winter'='2'],
   [type='service']['mtb:winter'='yes'] { line-color: lighten(@mtbwinter2, 5%); }
