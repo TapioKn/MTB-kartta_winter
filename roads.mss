@@ -196,8 +196,8 @@ come in as well.
     line-color: lighten(@road_case,80%);
     [bridge=1] { line-color: lighten(@road_case,30%); }
   }
-  // Case color for unpaved roads
-  [surface='unpaved'] { line-color: @unpaved_case; }
+  // Case color for unpaved roads, disabled in winter style
+  // [surface='unpaved'] { line-color: @unpaved_case; }
 
   [type='cycleway'],
   [type='footway'] {
@@ -427,8 +427,8 @@ come in as well.
     line-join: round;
   }
 
-  // Light brown fill for unpaved roads
-  [surface='unpaved'] { line-color: @unpaved_fill; }
+  // Light brown fill for unpaved roads, disabled in winter style
+  // [surface='unpaved'] { line-color: @unpaved_fill; }
 
   // mtb:winter coloring for service roads
   [type='service']['mtb:winter'='1']   { line-color: lighten(@mtbwinter1, 5%); }
