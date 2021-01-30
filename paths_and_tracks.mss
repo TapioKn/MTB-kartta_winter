@@ -195,20 +195,14 @@
   }
 }
 
-#winter_overlays[zoom>=14] {
-  ::cycling_restrictions {
-    ['mtb:winter'='no'],
-    ['bicycle:winter'='no'],
-    ['foot:winter'='no'],
-    ['piste:type'='downhill'],
-    ['piste:type'='nordic'],
-    ['piste:type'='skitour'] {
-      line-dasharray: 1.0, 2.0;
-      line-color: @forbidden;
-      [zoom=14]  { line-width: 5.5; }
-      [zoom=15]  { line-width: 5.8; }
-      [zoom>=16] { line-width: 6.0; }
-    }
+#winter_overlays[zoom>=13] {
+  ['winteraccess'='no'] {
+    line-dasharray: 1.0, 2.0;
+    line-color: @forbidden;
+    [zoom=13]  { line-width: 4.5; }
+    [zoom=14]  { line-width: 5.5; }
+    [zoom=15]  { line-width: 5.8; }
+    [zoom>=16] { line-width: 6.0; }
   }
 }
 

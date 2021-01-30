@@ -975,7 +975,7 @@
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "/* winter_overlays */\n( SELECT way, seasonal, \"mtb:winter\", \"bicycle:winter\", \"foot:winter\", \"piste:type\", \"piste:difficulty\"\n  FROM planet_osm_line\n  WHERE (highway IN ('footway', 'footpath', 'pedestrian', 'path', 'track', 'bridleway', 'service', 'cycleway'))\n ORDER BY z_order\n) AS data",
+        "table": "/* winter_overlays */\n( SELECT way, seasonal,\n  CASE\n    WHEN \"mtb:winter\" IN ('no', '-1')\n         OR \"bicycle:winter\" IN ('no', '-1')\n         OR \"foot:winter\" IN ('no', '-1')\n         THEN 'no'\n    WHEN (\"piste:type\" IS NOT NULL OR \"piste:difficulty\" IS NOT NULL) \n         AND (\"mtb:winter\" IS NULL OR \"mtb:winter\" NOT IN ('1', '2', '3', 'yes'))\n         AND (\"bicycle:winter\" IS NULL OR \"bicycle:winter\" <> 'yes')\n         AND (\"foot:winter\" IS NULL OR \"foot:winter\" <> 'yes')\n         THEN 'no'\n    ELSE 'yes' END AS winteraccess\n  FROM planet_osm_line\n  WHERE (highway IN ('footway', 'footpath', 'pedestrian', 'path', 'track', 'bridleway', 'service', 'cycleway'))\n ORDER BY z_order\n) AS data",
         "key_field": "",
         "geometry_field": "way",
         "extent_cache": "custom",
